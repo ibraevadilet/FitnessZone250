@@ -8,6 +8,7 @@
 class AppImages {
   AppImages._();
   
+  static const String backButtonIcon = 'assets/images/back_button_icon.png';  
   static const String bottomIcon1 = 'assets/images/bottom_icon_1.png';  
   static const String bottomIcon1Active = 'assets/images/bottom_icon_1_active.png';  
   static const String bottomIcon2 = 'assets/images/bottom_icon_2.png';  

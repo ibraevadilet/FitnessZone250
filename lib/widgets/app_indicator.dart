@@ -16,8 +16,7 @@ class AppIndicatorFitessZone extends StatelessWidget {
     return Center(
       child: SizedBox.square(
         dimension: radius,
-        child: CircularProgressIndicator(
-          color: color,
+        child: CircularProgressIndicator.adaptive(
           strokeWidth: strokeWidth,
         ),
       ),

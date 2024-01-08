@@ -28,10 +28,22 @@ abstract class AppTextStylesFitnessZone {
         fontWeight: FontWeight.w600,
         color: color ?? Colors.black,
       );
+  static TextStyle s16W700({Color? color}) => TextStyle(
+        fontFamily: fonst,
+        fontSize: 16,
+        fontWeight: FontWeight.w700,
+        color: color ?? Colors.black,
+      );
   static TextStyle s17W600({Color? color}) => TextStyle(
         fontFamily: fonst,
         fontSize: 17,
         fontWeight: FontWeight.w600,
+        color: color ?? Colors.black,
+      );
+  static TextStyle s18W500({Color? color}) => TextStyle(
+        fontFamily: fonst,
+        fontSize: 18,
+        fontWeight: FontWeight.w500,
         color: color ?? Colors.black,
       );
   static TextStyle s19W900({Color? color}) => TextStyle(
@@ -93,6 +105,12 @@ abstract class AppTextStylesFitnessZone {
         color: color ?? Colors.black,
         fontSize: 24.sp,
         fontWeight: FontWeight.w700,
+      );
+  static TextStyle s24W600({Color? color}) => TextStyle(
+        fontFamily: fonst,
+        color: color ?? Colors.black,
+        fontSize: 24.sp,
+        fontWeight: FontWeight.w600,
       );
   static TextStyle s28W700({Color? color}) => TextStyle(
         fontFamily: fonst,
