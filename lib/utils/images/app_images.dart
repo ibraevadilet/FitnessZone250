@@ -8,6 +8,7 @@
 class AppImages {
   AppImages._();
   
+  static const String add = 'assets/images/add.png';  
   static const String backButtonIcon = 'assets/images/back_button_icon.png';  
   static const String bottomIcon1 = 'assets/images/bottom_icon_1.png';  
   static const String bottomIcon1Active = 'assets/images/bottom_icon_1_active.png';  
@@ -23,6 +24,7 @@ class AppImages {
   static const String checkMarkIcon = 'assets/images/check_mark_icon.png';  
   static const String crownIcon = 'assets/images/crown_icon.png';  
   static const String fireIcon = 'assets/images/fire_icon.png';  
+  static const String glass = 'assets/images/glass.png';  
   static const String onBoard1 = 'assets/images/on_board_1.png';  
   static const String onBoard2 = 'assets/images/on_board_2.png';  
   static const String onBoard3 = 'assets/images/on_board_3.png';  
