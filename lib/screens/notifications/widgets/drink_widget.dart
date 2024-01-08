@@ -20,6 +20,7 @@ class _DrinkWidgetState extends State<DrinkWidget> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: SingleChildScrollView(
+        padding: const EdgeInsets.only(bottom: 30),
         child: Column(
           children: <Widget>[
             const SizedBox(height: 30),

@@ -2,7 +2,6 @@ import 'package:active_ally_fitness_zone_250/screens/notifications/font_sizer.da
 import 'package:active_ally_fitness_zone_250/screens/notifications/widgets/reminder.dart';
 import 'package:active_ally_fitness_zone_250/screens/notifications/widgets/water_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 int today = 0;
 int goal = 0;
@@ -25,7 +24,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
         title: const Text('NotificationsScreen'),
       ),
       body: SingleChildScrollView(
-        padding: EdgeInsets.symmetric(horizontal: 16.w),
+        padding: const EdgeInsets.only(right: 16, left: 16, bottom: 70),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

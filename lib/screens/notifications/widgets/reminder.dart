@@ -156,22 +156,31 @@ class _ReminderWidgetState extends State<ReminderWidget> {
                     ],
                   );
                 } else {
-                  return SizedBox(
-                    height: context.height * 0.32,
-                    child: ListView.separated(
-                      shrinkWrap: true,
-                      physics: const AlwaysScrollableScrollPhysics(),
-                      itemCount: notifications.length,
-                      separatorBuilder: (BuildContext context, int index) {
-                        return const SizedBox(height: 20);
-                      },
-                      itemBuilder: (BuildContext context, int index) {
-                        return ReminderContainer(
-                          model: notifications[index],
-                        );
-                      },
-                    ),
+                  return Column(
+                    children: notifications
+                        .map((model) => ReminderContainer(
+                              model: model,
+                            ))
+                        .toList(),
                   );
+
+                  // SizedBox(
+                  //   height: context.height * 0.32,
+                  //   child: ListView.separated(
+                  //     padding: const EdgeInsets.symmetric(vertical: 15),
+                  //     shrinkWrap: true,
+                  //     physics: const AlwaysScrollableScrollPhysics(),
+                  //     itemCount: notifications.length,
+                  //     separatorBuilder: (BuildContext context, int index) {
+                  //       return const SizedBox(height: 20);
+                  //     },
+                  //     itemBuilder: (BuildContext context, int index) {
+                  //       return ReminderContainer(
+                  //         model: notifications[index],
+                  //       );
+                  //     },
+                  //   ),
+                  // );
                 }
               },
               success2: () {
@@ -199,6 +208,7 @@ class _ReminderContainerState extends State<ReminderContainer> {
     return BlocBuilder<GetNotificationCubit, GetNotificationState>(
       builder: (context, state) {
         return Container(
+          margin: const EdgeInsets.only(bottom: 15),
           width: context.width,
           height: 55,
           padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
@@ -221,6 +231,8 @@ class _ReminderContainerState extends State<ReminderContainer> {
             children: [
               Text(
                 widget.model.date,
+                textScaler:
+                    TextScaler.linear(FontSizer.textScaleFactor(context)),
                 style: const TextStyle(
                   color: Colors.black,
                   fontSize: 16,
@@ -240,13 +252,13 @@ class _ReminderContainerState extends State<ReminderContainer> {
                           widget.model.id, widget.model.chek ?? false);
 
                   if (widget.model.chek == true) {
-                    var dateNotiNum =
-                        widget.model.date.replaceAll(RegExp(r'[^0-9]'), '');
-                    int firstNoti =
-                        int.tryParse(dateNotiNum.substring(0, 2)) ?? 0;
-                    int lastNoti =
-                        int.tryParse(dateNotiNum.substring(2, 4)) ?? 0;
-                    final currentTime = DateTime.now();
+                    // var dateNotiNum =
+                    //     widget.model.date.replaceAll(RegExp(r'[^0-9]'), '');
+                    // int firstNoti =
+                    //     int.tryParse(dateNotiNum.substring(0, 2)) ?? 0;
+                    // int lastNoti =
+                    //     int.tryParse(dateNotiNum.substring(2, 4)) ?? 0;
+                    // final currentTime = DateTime.now();
                     // final date = currentTime.copyWith(
                     //     hour: firstNoti, minute: lastNoti);
 
