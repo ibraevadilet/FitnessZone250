@@ -22,6 +22,12 @@ abstract class AppTextStylesFitnessZone {
         fontWeight: FontWeight.w500,
         color: color ?? Colors.black,
       );
+  static TextStyle s16W600({Color? color}) => TextStyle(
+        fontFamily: fonst,
+        fontSize: 16,
+        fontWeight: FontWeight.w600,
+        color: color ?? Colors.black,
+      );
   static TextStyle s17W600({Color? color}) => TextStyle(
         fontFamily: fonst,
         fontSize: 17,
@@ -58,16 +64,52 @@ abstract class AppTextStylesFitnessZone {
         fontSize: 15.sp,
         fontWeight: FontWeight.w400,
       );
+  static TextStyle s15W500({Color? color}) => TextStyle(
+        fontFamily: fonst,
+        color: color ?? Colors.black,
+        fontSize: 15.sp,
+        fontWeight: FontWeight.w500,
+      );
   static TextStyle s15W700({Color? color}) => TextStyle(
         fontFamily: fonst,
         color: color ?? Colors.black,
         fontSize: 15.sp,
         fontWeight: FontWeight.w700,
       );
+  static TextStyle s20W500({Color? color}) => TextStyle(
+        fontFamily: fonst,
+        color: color ?? Colors.black,
+        fontSize: 20.sp,
+        fontWeight: FontWeight.w500,
+      );
+  static TextStyle s20W600({Color? color}) => TextStyle(
+        fontFamily: fonst,
+        color: color ?? Colors.black,
+        fontSize: 20.sp,
+        fontWeight: FontWeight.w600,
+      );
+  static TextStyle s24W700({Color? color}) => TextStyle(
+        fontFamily: fonst,
+        color: color ?? Colors.black,
+        fontSize: 24.sp,
+        fontWeight: FontWeight.w700,
+      );
   static TextStyle s28W700({Color? color}) => TextStyle(
         fontFamily: fonst,
         color: color ?? Colors.black,
         fontSize: 28.sp,
+        fontWeight: FontWeight.w700,
+      );
+  static TextStyle s36W700({Color? color}) => TextStyle(
+        fontFamily: fonst,
+        color: color ?? Colors.black,
+        fontSize: 36.sp,
+        fontWeight: FontWeight.w700,
+      );
+  static TextStyle s30W700({Color? color}) => TextStyle(
+        fontFamily: fonst,
+        color: color ?? Colors.black,
+        fontSize: 30.sp,
         fontWeight: FontWeight.w700,
       );
   static TextStyle s46W700({Color? color}) => TextStyle(

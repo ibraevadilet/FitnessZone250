@@ -1,7 +1,10 @@
 import 'package:active_ally_fitness_zone_250/screens/bottom_nav_screen.dart';
+import 'package:active_ally_fitness_zone_250/screens/on_board_screen.dart';
 import 'package:active_ally_fitness_zone_250/utils/images/app_images.dart';
+import 'package:active_ally_fitness_zone_250/utils/premium/first_open.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:in_app_review/in_app_review.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({Key? key}) : super(key: key);
@@ -38,30 +41,30 @@ class _SplashScreenState extends State<SplashScreen> {
 
   toGoOnBoarFitnessZone() async {
     await Future.delayed(const Duration(milliseconds: 1450));
-    // final isFirst = await FirstOpenFitnessZone.getFirstOpen();
-    // if (!isFirst) {
-    //   Navigator.pushReplacement(
-    //     context,
-    //     MaterialPageRoute(
-    //       builder: (context) => const OnBoardScreen(),
-    //     ),
-    //   );
-    //   await Future.delayed(const Duration(seconds: 8));
-    //   try {
-    //     final InAppReview inAppReview = InAppReview.instance;
-    //     if (await inAppReview.isAvailable()) {
-    //       inAppReview.requestReview();
-    //     }
-    //   } catch (e) {
-    //     throw Exception(e);
-    //   }
-    // } else {
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(
-        builder: (context) => const BottomNavScreen(),
-      ),
-    );
-    // }
+    final isFirst = await FirstOpenFitnessZone.getFirstOpen();
+    if (!isFirst) {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const OnBoardScreen(),
+        ),
+      );
+      await Future.delayed(const Duration(seconds: 8));
+      try {
+        final InAppReview inAppReview = InAppReview.instance;
+        if (await inAppReview.isAvailable()) {
+          inAppReview.requestReview();
+        }
+      } catch (e) {
+        throw Exception(e);
+      }
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(
+          builder: (context) => const BottomNavScreen(),
+        ),
+      );
+    }
   }
 }

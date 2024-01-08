@@ -19,10 +19,13 @@ class AppImages {
   static const String bottomIcon5 = 'assets/images/bottom_icon_5.png';  
   static const String bottomIcon5Active = 'assets/images/bottom_icon_5_active.png';  
   static const String calorIcon = 'assets/images/calor_icon.png';  
+  static const String checkMarkIcon = 'assets/images/check_mark_icon.png';  
+  static const String crownIcon = 'assets/images/crown_icon.png';  
   static const String fireIcon = 'assets/images/fire_icon.png';  
   static const String onBoard1 = 'assets/images/on_board_1.png';  
   static const String onBoard2 = 'assets/images/on_board_2.png';  
   static const String onBoard3 = 'assets/images/on_board_3.png';  
+  static const String premLogo = 'assets/images/prem_logo.png';  
   static const String premiumImage = 'assets/images/premium_image.png';  
   static const String shareIcon = 'assets/images/share_icon.png';  
   static const String splashLogo = 'assets/images/splash_logo.png';  
