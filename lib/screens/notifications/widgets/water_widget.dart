@@ -6,6 +6,8 @@ import 'package:active_ally_fitness_zone_250/utils/images/app_images.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'mega_text_animation.dart';
+
 class WaterWidget extends StatefulWidget {
   const WaterWidget({super.key});
 
@@ -19,36 +21,39 @@ class _WaterWidgetState extends State<WaterWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        GestureDetector(
-          onTap: () => showAlertDialog(
-            context,
-            title: 'Goal',
-            titleSub: 'Set your daily goal',
-            cancel: 'cancel',
-            save: 'save',
-          ).then((value) {
-            today += value ?? 0;
-            setState(() {});
-          }),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                'Set your daily goal',
-                textScaler:
-                    TextScaler.linear(FontSizer.textScaleFactor(context)),
-                style: TextStyle(
-                  color: Colors.black.withOpacity(0.6000000238418579),
-                  fontSize: 16,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w400,
+        MegaTweenAnimations.appearWidget(
+          duration: const Duration(milliseconds: 600),
+          child: GestureDetector(
+            onTap: () => showAlertDialog(
+              context,
+              title: 'Goal',
+              titleSub: 'Set your daily goal',
+              cancel: 'cancel',
+              save: 'save',
+            ).then((value) {
+              today += value ?? 0;
+              setState(() {});
+            }),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Set your daily goal',
+                  textScaler:
+                      TextScaler.linear(FontSizer.textScaleFactor(context)),
+                  style: TextStyle(
+                    color: Colors.black.withOpacity(0.6000000238418579),
+                    fontSize: 16,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w400,
+                  ),
                 ),
-              ),
-              Image.asset(
-                AppImages.add,
-                scale: 4.5,
-              ),
-            ],
+                Image.asset(
+                  AppImages.add,
+                  scale: 4.5,
+                ),
+              ],
+            ),
           ),
         ),
         const SizedBox(height: 25),
@@ -76,15 +81,18 @@ class _WaterWidgetState extends State<WaterWidget> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      'Water consumption',
-                      textScaler:
-                          TextScaler.linear(FontSizer.textScaleFactor(context)),
-                      style: const TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w500,
+                    MegaTweenAnimations.scaleWidget(
+                      duration: const Duration(milliseconds: 300),
+                      child: Text(
+                        'Water consumption',
+                        textScaler: TextScaler.linear(
+                            FontSizer.textScaleFactor(context)),
+                        style: const TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                     Image.asset(
@@ -108,15 +116,18 @@ class _WaterWidgetState extends State<WaterWidget> {
                       ),
                     ),
                     const SizedBox(width: 10),
-                    Text(
-                      '${today}ml',
-                      textScaler:
-                          TextScaler.linear(FontSizer.textScaleFactor(context)),
-                      style: const TextStyle(
-                        color: Color(0xFFFF0089),
-                        fontSize: 16,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w400,
+                    MegaTweenAnimations.scaleWidget(
+                      duration: const Duration(milliseconds: 400),
+                      child: Text(
+                        '${today}ml',
+                        textScaler: TextScaler.linear(
+                            FontSizer.textScaleFactor(context)),
+                        style: const TextStyle(
+                          color: Color(0xFFFF0089),
+                          fontSize: 16,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
                     ),
                   ],
@@ -136,15 +147,18 @@ class _WaterWidgetState extends State<WaterWidget> {
                       ),
                     ),
                     const SizedBox(width: 10),
-                    Text(
-                      '${goal}ml',
-                      textScaler:
-                          TextScaler.linear(FontSizer.textScaleFactor(context)),
-                      style: const TextStyle(
-                        color: Color(0xFFFF0089),
-                        fontSize: 16,
-                        fontFamily: 'Inter',
-                        fontWeight: FontWeight.w400,
+                    MegaTweenAnimations.scaleWidget(
+                      duration: const Duration(milliseconds: 500),
+                      child: Text(
+                        '${goal}ml',
+                        textScaler: TextScaler.linear(
+                            FontSizer.textScaleFactor(context)),
+                        style: const TextStyle(
+                          color: Color(0xFFFF0089),
+                          fontSize: 16,
+                          fontFamily: 'Inter',
+                          fontWeight: FontWeight.w400,
+                        ),
                       ),
                     ),
                   ],

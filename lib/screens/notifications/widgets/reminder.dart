@@ -5,7 +5,9 @@ import 'package:active_ally_fitness_zone_250/screens/notifications/font_sizer.da
 import 'package:active_ally_fitness_zone_250/screens/notifications/get_notification_cubit/get_notification_cubit.dart';
 import 'package:active_ally_fitness_zone_250/screens/notifications/widgets/cupertino_modal.dart';
 import 'package:active_ally_fitness_zone_250/screens/notifications/widgets/services/notification_handler.dart';
+import 'package:active_ally_fitness_zone_250/screens/premium_screen.dart';
 import 'package:active_ally_fitness_zone_250/utils/images/app_images.dart';
+import 'package:active_ally_fitness_zone_250/utils/premium/premium.dart';
 import 'package:active_ally_fitness_zone_250/widgets/spaces.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -36,59 +38,68 @@ class _ReminderWidgetState extends State<ReminderWidget> {
       children: [
         const SizedBox(height: 25),
         GestureDetector(
-          onTap: () {
-            showAlertDialogReminder(
-              context,
-              title: 'Reminder',
-              titleSub: 'Specify the reminder time',
-              cancel: 'cancel',
-              save: "Next",
-            ).then(
-              (dateTime) async {
-                log('data: dateTime: $dateTime ');
+          onTap: () async {
+            final prem = await PremiumFitnessZone.getPremium();
+            if (!prem) {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const PremiumScreen()),
+              );
+            } else {
+              showAlertDialogReminder(
+                context,
+                title: 'Reminder',
+                titleSub: 'Specify the reminder time',
+                cancel: 'cancel',
+                save: "Next",
+              ).then(
+                (dateTime) async {
+                  log('data: dateTime: $dateTime ');
 
-                setState(() {});
-                var dateNoti =
-                    DateFormat('HH:mm').format(DateTime.parse('$dateTime'));
+                  setState(() {});
+                  var dateNoti =
+                      DateFormat('HH:mm').format(DateTime.parse('$dateTime'));
 
-                var dateNow = DateFormat('HH:mm').format(DateTime.now());
+                  var dateNow = DateFormat('HH:mm').format(DateTime.now());
 
-                int notifId = DateTime.now().millisecond;
+                  int notifId = DateTime.now().millisecond;
 
-                final notificationHiveModel = NotificationHiveModel(
-                    id: notifId, date: dateNoti, chek: true);
+                  final notificationHiveModel = NotificationHiveModel(
+                      id: notifId, date: dateNoti, chek: true);
 
-                var dateNotiNum = dateNoti.replaceAll(RegExp(r'[^0-9]'), '');
-                var dateNowNum = dateNow.replaceAll(RegExp(r'[^0-9]'), '');
+                  var dateNotiNum = dateNoti.replaceAll(RegExp(r'[^0-9]'), '');
+                  var dateNowNum = dateNow.replaceAll(RegExp(r'[^0-9]'), '');
 
-                int firstNoti = int.tryParse(dateNotiNum.substring(0, 2)) ?? 0;
-                int lastNoti = int.tryParse(dateNotiNum.substring(2, 4)) ?? 0;
+                  int firstNoti =
+                      int.tryParse(dateNotiNum.substring(0, 2)) ?? 0;
+                  int lastNoti = int.tryParse(dateNotiNum.substring(2, 4)) ?? 0;
 
-                int firstNow = int.tryParse(dateNowNum.substring(0, 2)) ?? 0;
-                int lastNow = int.tryParse(dateNowNum.substring(2, 4)) ?? 0;
+                  int firstNow = int.tryParse(dateNowNum.substring(0, 2)) ?? 0;
+                  int lastNow = int.tryParse(dateNowNum.substring(2, 4)) ?? 0;
 
-                var resultNoti = (firstNoti * 60) + lastNoti;
-                var resultNow = (firstNow * 60) + lastNow;
-                if (resultNow < resultNoti) {
-                  minutes = resultNoti - resultNow;
-                } else if (resultNow > resultNoti) {
-                  minutes = (resultNoti - resultNow) + 1440;
-                }
-                final currentTime = DateTime.now();
-                final date =
-                    currentTime.copyWith(hour: firstNoti, minute: lastNoti);
+                  var resultNoti = (firstNoti * 60) + lastNoti;
+                  var resultNow = (firstNow * 60) + lastNow;
+                  if (resultNow < resultNoti) {
+                    minutes = resultNoti - resultNow;
+                  } else if (resultNow > resultNoti) {
+                    minutes = (resultNoti - resultNow) + 1440;
+                  }
+                  final currentTime = DateTime.now();
+                  final date =
+                      currentTime.copyWith(hour: firstNoti, minute: lastNoti);
 
-                await _notificationService.scheduleNotifications(
-                  id: notifId,
-                  title: 'Time $dateNoti',
-                  body: "It's time to drink water!",
-                  time: date,
-                );
-                context.read<GetNotificationCubit>().setNotification(
-                      notificationHiveModel,
-                    );
-              },
-            );
+                  await _notificationService.scheduleNotifications(
+                    id: notifId,
+                    title: 'Time $dateNoti',
+                    body: "It's time to drink water!",
+                    time: date,
+                  );
+                  context.read<GetNotificationCubit>().setNotification(
+                        notificationHiveModel,
+                      );
+                },
+              );
+            }
           },
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -127,7 +138,7 @@ class _ReminderWidgetState extends State<ReminderWidget> {
                 );
               },
               error: (v) {
-                return const Text('eror');
+                return Text(v);
               },
               success: (notifications) {
                 if (notifications.isEmpty) {
