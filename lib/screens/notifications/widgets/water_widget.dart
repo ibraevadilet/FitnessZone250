@@ -3,6 +3,7 @@ import 'package:active_ally_fitness_zone_250/screens/notifications/notifications
 import 'package:active_ally_fitness_zone_250/screens/notifications/widgets/cupertino_modal.dart';
 import 'package:active_ally_fitness_zone_250/screens/notifications/widgets/drink_widget.dart';
 import 'package:active_ally_fitness_zone_250/utils/images/app_images.dart';
+import 'package:active_ally_fitness_zone_250/widgets/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -57,7 +58,7 @@ class _WaterWidgetState extends State<WaterWidget> {
         ),
         const SizedBox(height: 25),
         Container(
-          width: 335,
+          width: context.width,
           height: 190,
           decoration: ShapeDecoration(
             color: Colors.white,

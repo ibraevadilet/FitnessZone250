@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 
 part 'caloriy_model.g.dart';
 
-@HiveType(typeId: 0)
+@HiveType(typeId: 1)
 class CaloryModel extends HiveObject {
   @HiveField(0)
   int calory;

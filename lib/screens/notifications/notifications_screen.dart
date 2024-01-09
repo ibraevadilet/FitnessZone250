@@ -21,54 +21,49 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'NotificationsScreen',
-          // textScaler: TextScaler.linear(FontSizer.textScaleFactor(context)),
-          textScaleFactor: FontSizer.textScaleFactor(context),
-        ),
-      ),
-      body: SingleChildScrollView(
-        padding: const EdgeInsets.only(right: 16, left: 16, bottom: 70),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            MegaTweenAnimations.appearWidget(
-              duration: const Duration(milliseconds: 300),
-              child: Text(
-                'Notifications',
-                textScaleFactor: FontSizer.textScaleFactor(context),
-                style: const TextStyle(
-                  color: Colors.black,
-                  fontSize: 30,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w700,
+      body: SafeArea(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.only(right: 16, left: 16, bottom: 70),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              MegaTweenAnimations.appearWidget(
+                duration: const Duration(milliseconds: 300),
+                child: Text(
+                  'Notifications',
+                  textScaleFactor: FontSizer.textScaleFactor(context),
+                  style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 30,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w700,
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 7),
-            MegaTweenAnimations.appearWidget(
-              duration: const Duration(milliseconds: 500),
-              child: Text(
-                'Don`t forget to drink water',
-                textScaleFactor: FontSizer.textScaleFactor(context),
-                style: TextStyle(
-                  color: Colors.black.withOpacity(0.6000000238418579),
-                  fontSize: 18,
-                  fontFamily: 'Inter',
-                  fontWeight: FontWeight.w500,
+              const SizedBox(height: 7),
+              MegaTweenAnimations.appearWidget(
+                duration: const Duration(milliseconds: 500),
+                child: Text(
+                  'Don`t forget to drink water',
+                  textScaleFactor: FontSizer.textScaleFactor(context),
+                  style: TextStyle(
+                    color: Colors.black.withOpacity(0.6000000238418579),
+                    fontSize: 18,
+                    fontFamily: 'Inter',
+                    fontWeight: FontWeight.w500,
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 28),
-            MegaTweenAnimations.appearWidget(
-              duration: const Duration(milliseconds: 600),
-              child: const WaterWidget(),
-            ),
-            MegaTweenAnimations.appearWidget(
-                duration: const Duration(milliseconds: 1200),
-                child: const ReminderWidget()),
-          ],
+              const SizedBox(height: 28),
+              MegaTweenAnimations.appearWidget(
+                duration: const Duration(milliseconds: 600),
+                child: const WaterWidget(),
+              ),
+              MegaTweenAnimations.appearWidget(
+                  duration: const Duration(milliseconds: 1200),
+                  child: const ReminderWidget()),
+            ],
+          ),
         ),
       ),
     );

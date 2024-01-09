@@ -43,7 +43,10 @@ class _ReminderWidgetState extends State<ReminderWidget> {
             if (!prem) {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const PremiumScreen()),
+                MaterialPageRoute(
+                    builder: (context) => const PremiumScreen(
+                          isClose: true,
+                        )),
               );
             } else {
               showAlertDialogReminder(
@@ -150,7 +153,7 @@ class _ReminderWidgetState extends State<ReminderWidget> {
                           Text(
                             'No reminders yet',
                             textAlign: TextAlign.center,
-                           textScaleFactor: FontSizer.textScaleFactor(context),
+                            textScaleFactor: FontSizer.textScaleFactor(context),
                             style: TextStyle(
                               color:
                                   Colors.black.withOpacity(0.6000000238418579),
@@ -248,7 +251,8 @@ class _ReminderContainerState extends State<ReminderContainer> {
                   height: 0.09,
                 ),
               ),
-              Switch(
+              Switch.adaptive(
+                activeColor: const Color(0xffFF008A),
                 activeTrackColor: const Color(0xffFF008A),
                 value: widget.model.chek ?? false,
                 onChanged: (newValue) async {

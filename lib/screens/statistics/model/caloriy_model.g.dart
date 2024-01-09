@@ -8,7 +8,7 @@ part of 'caloriy_model.dart';
 
 class CaloryModelAdapter extends TypeAdapter<CaloryModel> {
   @override
-  final int typeId = 0;
+  final int typeId = 1;
 
   @override
   CaloryModel read(BinaryReader reader) {
