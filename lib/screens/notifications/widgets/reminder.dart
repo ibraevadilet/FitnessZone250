@@ -106,8 +106,7 @@ class _ReminderWidgetState extends State<ReminderWidget> {
             children: [
               Text(
                 'Reminders',
-                textScaler:
-                    TextScaler.linear(FontSizer.textScaleFactor(context)),
+                textScaleFactor: FontSizer.textScaleFactor(context),
                 style: const TextStyle(
                   color: Colors.black,
                   fontSize: 24,
@@ -151,9 +150,7 @@ class _ReminderWidgetState extends State<ReminderWidget> {
                           Text(
                             'No reminders yet',
                             textAlign: TextAlign.center,
-                            textScaler: TextScaler.linear(
-                              FontSizer.textScaleFactor(context),
-                            ),
+                           textScaleFactor: FontSizer.textScaleFactor(context),
                             style: TextStyle(
                               color:
                                   Colors.black.withOpacity(0.6000000238418579),
@@ -242,8 +239,7 @@ class _ReminderContainerState extends State<ReminderContainer> {
             children: [
               Text(
                 widget.model.date,
-                textScaler:
-                    TextScaler.linear(FontSizer.textScaleFactor(context)),
+                textScaleFactor: FontSizer.textScaleFactor(context),
                 style: const TextStyle(
                   color: Colors.black,
                   fontSize: 16,

@@ -39,8 +39,7 @@ class _WaterWidgetState extends State<WaterWidget> {
               children: [
                 Text(
                   'Set your daily goal',
-                  textScaler:
-                      TextScaler.linear(FontSizer.textScaleFactor(context)),
+                  textScaleFactor: FontSizer.textScaleFactor(context),
                   style: TextStyle(
                     color: Colors.black.withOpacity(0.6000000238418579),
                     fontSize: 16,
@@ -85,8 +84,7 @@ class _WaterWidgetState extends State<WaterWidget> {
                       duration: const Duration(milliseconds: 300),
                       child: Text(
                         'Water consumption',
-                        textScaler: TextScaler.linear(
-                            FontSizer.textScaleFactor(context)),
+                        textScaleFactor: FontSizer.textScaleFactor(context),
                         style: const TextStyle(
                           color: Colors.black,
                           fontSize: 20,
@@ -106,8 +104,7 @@ class _WaterWidgetState extends State<WaterWidget> {
                   children: [
                     Text(
                       'Today:',
-                      textScaler:
-                          TextScaler.linear(FontSizer.textScaleFactor(context)),
+                      textScaleFactor: FontSizer.textScaleFactor(context),
                       style: const TextStyle(
                         color: Colors.black,
                         fontSize: 16,
@@ -120,8 +117,7 @@ class _WaterWidgetState extends State<WaterWidget> {
                       duration: const Duration(milliseconds: 400),
                       child: Text(
                         '${today}ml',
-                        textScaler: TextScaler.linear(
-                            FontSizer.textScaleFactor(context)),
+                        textScaleFactor: FontSizer.textScaleFactor(context),
                         style: const TextStyle(
                           color: Color(0xFFFF0089),
                           fontSize: 16,
@@ -137,8 +133,7 @@ class _WaterWidgetState extends State<WaterWidget> {
                   children: [
                     Text(
                       'Your goal:',
-                      textScaler:
-                          TextScaler.linear(FontSizer.textScaleFactor(context)),
+                      textScaleFactor: FontSizer.textScaleFactor(context),
                       style: const TextStyle(
                         color: Colors.black,
                         fontSize: 16,
@@ -151,8 +146,7 @@ class _WaterWidgetState extends State<WaterWidget> {
                       duration: const Duration(milliseconds: 500),
                       child: Text(
                         '${goal}ml',
-                        textScaler: TextScaler.linear(
-                            FontSizer.textScaleFactor(context)),
+                        textScaleFactor: FontSizer.textScaleFactor(context),
                         style: const TextStyle(
                           color: Color(0xFFFF0089),
                           fontSize: 16,
@@ -190,8 +184,7 @@ class _WaterWidgetState extends State<WaterWidget> {
                       child: Text(
                         'Drink',
                         textAlign: TextAlign.center,
-                        textScaler: TextScaler.linear(
-                            FontSizer.textScaleFactor(context)),
+                        textScaleFactor: FontSizer.textScaleFactor(context),
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 15,

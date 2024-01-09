@@ -24,7 +24,8 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
       appBar: AppBar(
         title: Text(
           'NotificationsScreen',
-          textScaler: TextScaler.linear(FontSizer.textScaleFactor(context)),
+          // textScaler: TextScaler.linear(FontSizer.textScaleFactor(context)),
+          textScaleFactor: FontSizer.textScaleFactor(context),
         ),
       ),
       body: SingleChildScrollView(
@@ -36,8 +37,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
               duration: const Duration(milliseconds: 300),
               child: Text(
                 'Notifications',
-                textScaler:
-                    TextScaler.linear(FontSizer.textScaleFactor(context)),
+                textScaleFactor: FontSizer.textScaleFactor(context),
                 style: const TextStyle(
                   color: Colors.black,
                   fontSize: 30,
@@ -51,8 +51,7 @@ class _NotificationsScreenState extends State<NotificationsScreen> {
               duration: const Duration(milliseconds: 500),
               child: Text(
                 'Don`t forget to drink water',
-                textScaler:
-                    TextScaler.linear(FontSizer.textScaleFactor(context)),
+                textScaleFactor: FontSizer.textScaleFactor(context),
                 style: TextStyle(
                   color: Colors.black.withOpacity(0.6000000238418579),
                   fontSize: 18,

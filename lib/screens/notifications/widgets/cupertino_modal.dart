@@ -19,7 +19,7 @@ Future<int?> showAlertDialog(
           title: Text(
             title,
             textAlign: TextAlign.center,
-            textScaler: TextScaler.linear(FontSizer.textScaleFactor(context)),
+            textScaleFactor: FontSizer.textScaleFactor(context),
             style: const TextStyle(
               color: Colors.black,
               fontSize: 16,
@@ -34,8 +34,7 @@ Future<int?> showAlertDialog(
                 Text(
                   titleSub,
                   textAlign: TextAlign.center,
-                  textScaler:
-                      TextScaler.linear(FontSizer.textScaleFactor(context)),
+                  textScaleFactor: FontSizer.textScaleFactor(context),
                   style: const TextStyle(
                     color: Colors.black,
                     fontSize: 14,
@@ -82,8 +81,7 @@ Future<int?> showAlertDialog(
                           return Center(
                               child: Text(
                             '${(index + 1) * 100} ml',
-                            textScaler: TextScaler.linear(
-                                FontSizer.textScaleFactor(context)),
+                            textScaleFactor: FontSizer.textScaleFactor(context),
                           ));
                         },
                       ),
@@ -101,8 +99,7 @@ Future<int?> showAlertDialog(
               },
               child: Text(
                 cancel,
-                textScaler:
-                    TextScaler.linear(FontSizer.textScaleFactor(context)),
+                textScaleFactor: FontSizer.textScaleFactor(context),
                 style: const TextStyle(
                   color: Colors.black,
                   fontSize: 16,
@@ -118,8 +115,7 @@ Future<int?> showAlertDialog(
               child: Text(
                 save,
                 textAlign: TextAlign.center,
-                textScaler:
-                    TextScaler.linear(FontSizer.textScaleFactor(context)),
+                textScaleFactor: FontSizer.textScaleFactor(context),
                 style: const TextStyle(
                   color: Color(0xFFFF0089),
                   fontSize: 16,
@@ -149,7 +145,7 @@ Future<DateTime?> showAlertDialogReminder(
           title: Text(
             title,
             textAlign: TextAlign.center,
-            textScaler: TextScaler.linear(FontSizer.textScaleFactor(context)),
+            textScaleFactor: FontSizer.textScaleFactor(context),
             style: const TextStyle(
               color: Colors.black,
               fontSize: 16,
@@ -164,8 +160,7 @@ Future<DateTime?> showAlertDialogReminder(
                 Text(
                   titleSub,
                   textAlign: TextAlign.center,
-                  textScaler:
-                      TextScaler.linear(FontSizer.textScaleFactor(context)),
+                  textScaleFactor: FontSizer.textScaleFactor(context),
                   style: const TextStyle(
                     color: Colors.black,
                     fontSize: 14,
@@ -206,8 +201,7 @@ Future<DateTime?> showAlertDialogReminder(
               },
               child: Text(
                 cancel,
-                textScaler:
-                    TextScaler.linear(FontSizer.textScaleFactor(context)),
+                textScaleFactor: FontSizer.textScaleFactor(context),
                 style: const TextStyle(
                   color: Colors.black,
                   fontSize: 16,
@@ -222,8 +216,7 @@ Future<DateTime?> showAlertDialogReminder(
               child: Text(
                 save,
                 textAlign: TextAlign.center,
-                textScaler:
-                    TextScaler.linear(FontSizer.textScaleFactor(context)),
+                textScaleFactor: FontSizer.textScaleFactor(context),
                 style: const TextStyle(
                   color: Color(0xFFFF0089),
                   fontSize: 16,

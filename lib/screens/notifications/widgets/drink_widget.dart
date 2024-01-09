@@ -33,8 +33,7 @@ class _DrinkWidgetState extends State<DrinkWidget> {
                   child: Text(
                     'Water',
                     textAlign: TextAlign.center,
-                    textScaler:
-                        TextScaler.linear(FontSizer.textScaleFactor(context)),
+                    textScaleFactor: FontSizer.textScaleFactor(context),
                     style: const TextStyle(
                       color: Colors.black,
                       fontSize: 24,
@@ -62,7 +61,7 @@ class _DrinkWidgetState extends State<DrinkWidget> {
                   ? '${(selectedValueIndex + 1) * 50} ml'
                   : '0 ml',
               textAlign: TextAlign.center,
-              textScaler: TextScaler.linear(FontSizer.textScaleFactor(context)),
+              textScaleFactor: FontSizer.textScaleFactor(context),
               style: const TextStyle(
                 color: Colors.black,
                 fontSize: 32,
@@ -103,9 +102,7 @@ class _DrinkWidgetState extends State<DrinkWidget> {
                         child: Text(
                           '$value',
                           textAlign: TextAlign.center,
-                          textScaler: TextScaler.linear(
-                            FontSizer.textScaleFactor(context),
-                          ),
+                          textScaleFactor: FontSizer.textScaleFactor(context),
                           style: const TextStyle(
                             color: Colors.white,
                             fontSize: 20,
@@ -150,9 +147,7 @@ class _DrinkWidgetState extends State<DrinkWidget> {
                 child: Text(
                   'ADD',
                   textAlign: TextAlign.center,
-                  textScaler: TextScaler.linear(
-                    FontSizer.textScaleFactor(context),
-                  ),
+                  textScaleFactor: FontSizer.textScaleFactor(context),
                   style: const TextStyle(
                     color: Colors.white,
                     fontSize: 20,
