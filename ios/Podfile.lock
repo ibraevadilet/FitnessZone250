@@ -3,11 +3,15 @@ PODS:
     - ApphudSDK (= 2.8.8)
     - Flutter
   - ApphudSDK (2.8.8)
+  - audio_session (0.0.1):
+    - Flutter
   - Flutter (1.0.0)
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
   - in_app_review (0.2.0):
+    - Flutter
+  - just_audio (0.0.1):
     - Flutter
   - path_provider_foundation (0.0.1):
     - Flutter
@@ -27,8 +31,10 @@ PODS:
 
 DEPENDENCIES:
   - apphud (from `.symlinks/plugins/apphud/ios`)
+  - audio_session (from `.symlinks/plugins/audio_session/ios`)
   - Flutter (from `Flutter`)
   - in_app_review (from `.symlinks/plugins/in_app_review/ios`)
+  - just_audio (from `.symlinks/plugins/just_audio/ios`)
   - path_provider_foundation (from `.symlinks/plugins/path_provider_foundation/darwin`)
   - share_plus (from `.symlinks/plugins/share_plus/ios`)
   - shared_preferences_foundation (from `.symlinks/plugins/shared_preferences_foundation/darwin`)
@@ -44,10 +50,14 @@ SPEC REPOS:
 EXTERNAL SOURCES:
   apphud:
     :path: ".symlinks/plugins/apphud/ios"
+  audio_session:
+    :path: ".symlinks/plugins/audio_session/ios"
   Flutter:
     :path: Flutter
   in_app_review:
     :path: ".symlinks/plugins/in_app_review/ios"
+  just_audio:
+    :path: ".symlinks/plugins/just_audio/ios"
   path_provider_foundation:
     :path: ".symlinks/plugins/path_provider_foundation/darwin"
   share_plus:
@@ -64,9 +74,11 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   apphud: 5ca6f25a0d8b9264a3f8a597f2d13f4a24941707
   ApphudSDK: ef62166ff111404f1fa01a4cd4552d266b778565
+  audio_session: 4f3e461722055d21515cf3261b64c973c062f345
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   in_app_review: 318597b3a06c22bb46dc454d56828c85f444f99d
+  just_audio: baa7252489dbcf47a4c7cc9ca663e9661c99aafa
   path_provider_foundation: 29f094ae23ebbca9d3d0cec13889cd9060c0e943
   share_plus: c3fef564749587fc939ef86ffb283ceac0baf9f5
   shared_preferences_foundation: 5b919d13b803cadd15ed2dc053125c68730e5126
@@ -76,4 +88,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: a57f30d18f102dd3ce366b1d62a55ecbef2158e5
 
-COCOAPODS: 1.12.1
+COCOAPODS: 1.11.3

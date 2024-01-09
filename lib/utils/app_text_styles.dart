@@ -10,6 +10,12 @@ abstract class AppTextStylesFitnessZone {
         fontSize: 10,
         fontWeight: FontWeight.bold,
       );
+  static TextStyle s10W400({Color? color}) => TextStyle(
+        fontFamily: fonst,
+        color: color ?? Colors.black,
+        fontSize: 10,
+        fontWeight: FontWeight.w400,
+      );
   static TextStyle s16W400({Color? color}) => TextStyle(
         fontFamily: fonst,
         fontSize: 16,
@@ -117,6 +123,12 @@ abstract class AppTextStylesFitnessZone {
         color: color ?? Colors.black,
         fontSize: 28.sp,
         fontWeight: FontWeight.w700,
+      );
+  static TextStyle s32W800({Color? color}) => TextStyle(
+        fontFamily: fonst,
+        color: color ?? Colors.black,
+        fontSize: 32.sp,
+        fontWeight: FontWeight.w800,
       );
   static TextStyle s36W700({Color? color}) => TextStyle(
         fontFamily: fonst,
