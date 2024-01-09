@@ -59,6 +59,7 @@ dependencies:
   timezone: ^0.8.0
   flutter_native_timezone: ^2.0.0
    
+  sensors_plus: ^3.0.2
 
 dev_dependencies:
   flutter_test:

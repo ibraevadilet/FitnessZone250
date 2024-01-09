@@ -29,6 +29,7 @@ class _PremiumScreenState extends State<PremiumScreen> {
             AppImages.premiumImage,
             height: context.height,
             width: context.width,
+            fit: BoxFit.cover,
           ),
           Container(
             height: context.height,
