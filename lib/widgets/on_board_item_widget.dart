@@ -20,6 +20,8 @@ class OnBoardItemWidget extends StatelessWidget {
         Image.asset(
           image,
           height: context.height,
+          width: context.width,
+          fit: BoxFit.cover,
         ),
         Positioned(
           top: 20,
