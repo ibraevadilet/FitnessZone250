@@ -1,8 +1,8 @@
+import 'package:active_ally_fitness_zone_250/screens/premium_screen.dart';
 import 'package:active_ally_fitness_zone_250/screens/workouts/exercise_page.dart';
 import 'package:active_ally_fitness_zone_250/screens/workouts/models/workout_model.dart';
 import 'package:active_ally_fitness_zone_250/utils/app_text_styles.dart';
-import 'package:active_ally_fitness_zone_250/utils/colors.dart';
-import 'package:active_ally_fitness_zone_250/utils/images/app_images.dart';
+import 'package:active_ally_fitness_zone_250/utils/premium/premium.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -343,15 +343,30 @@ class WorkoutDetailPage extends StatelessWidget {
                 crossAxisCount: 2,
                 itemBuilder: (context, index) => InkWell(
                     onTap: () async {
-                      Navigator.push(
+                      final bool isPremium =
+                          await PremiumFitnessZone.getPremium();
+                      if (!isPremium) {
+                        Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ExercisePage(
-                                    time: time,
-                                    data: data,
-                                    musicUrl:
-                                        'https://eu.hitmotop.com/get/music/20170905/Classical_Study_Music_Meditation_Relaxing_Music_Relaxing_Piano_Music_Lyudvig_van_Betkhoven_-_Moonlight_Sonata_48242243.mp3',
-                                  )));
+                            builder: (context) => const PremiumScreen(
+                              isClose: true,
+                            ),
+                          ),
+                        );
+                      } else {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => ExercisePage(
+                              time: time,
+                              data: data,
+                              musicUrl:
+                                  'https://eu.hitmotop.com/get/music/20170905/Classical_Study_Music_Meditation_Relaxing_Music_Relaxing_Piano_Music_Lyudvig_van_Betkhoven_-_Moonlight_Sonata_48242243.mp3',
+                            ),
+                          ),
+                        );
+                      }
                     },
                     child: Container(
                       height: 220.h,
