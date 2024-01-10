@@ -135,6 +135,45 @@ class _ExercisePageState extends State<ExercisePage> {
                             ),
                           ),
                           Positioned(
+                            left: 20,
+                            top: 64,
+                            child: IconButton(
+                              // iconSize: ,
+                              onPressed: () {
+                                var nextPage =
+                                    _pageController.page!.round() - 1;
+                                print('+++++++ $nextPage');
+                                if (0 > nextPage) {
+                                  Navigator.pop(context);
+                                } else {
+                                  _pageController.animateToPage(
+                                    nextPage,
+                                    duration: kTabScrollDuration,
+                                    curve: Curves.easeIn,
+                                  );
+                                }
+                              },
+                              icon: Container(
+                                margin: const EdgeInsets.only(
+                                    // left: 20,
+                                    ),
+                                height: 35,
+                                width: 35,
+                                decoration: BoxDecoration(
+                                  color:
+                                      const Color(0xffFFFFFF).withOpacity(0.6),
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: const Center(
+                                  child: Icon(
+                                    Icons.arrow_back_ios_new,
+                                    color: Color(0xff161621),
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
                               left: 0,
                               right: 0,
                               bottom: 0,
