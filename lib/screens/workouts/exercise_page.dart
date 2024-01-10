@@ -60,7 +60,6 @@ class _ExercisePageState extends State<ExercisePage> {
       setState(() {
         const reduceSecondsBy = 1;
         final seconds = duration!.inSeconds - reduceSecondsBy;
-        print(' seconds seconds$seconds');
         if (seconds < 0) {
           countdownTimer?.cancel();
         } else {
@@ -128,6 +127,45 @@ class _ExercisePageState extends State<ExercisePage> {
                               widget.data.image!,
                               width: double.maxFinite,
                               fit: BoxFit.fitWidth,
+                            ),
+                          ),
+                          Positioned(
+                            left: 20,
+                            top: 64,
+                            child: IconButton(
+                              // iconSize: ,
+                              onPressed: () {
+                                var nextPage =
+                                    _pageController.page!.round() - 1;
+                                print('+++++++ $nextPage');
+                                if (0 > nextPage) {
+                                  Navigator.pop(context);
+                                } else {
+                                  _pageController.animateToPage(
+                                    nextPage,
+                                    duration: kTabScrollDuration,
+                                    curve: Curves.easeIn,
+                                  );
+                                }
+                              },
+                              icon: Container(
+                                margin: const EdgeInsets.only(
+                                    // left: 20,
+                                    ),
+                                height: 35,
+                                width: 35,
+                                decoration: BoxDecoration(
+                                  color:
+                                      const Color(0xffFFFFFF).withOpacity(0.6),
+                                  borderRadius: BorderRadius.circular(20),
+                                ),
+                                child: const Center(
+                                  child: Icon(
+                                    Icons.arrow_back_ios_new,
+                                    color: Color(0xff161621),
+                                  ),
+                                ),
+                              ),
                             ),
                           ),
                           Positioned(
@@ -209,11 +247,16 @@ class _ExercisePageState extends State<ExercisePage> {
           GestureDetector(
             onTap: () {
               var nextPage = _pageController.page!.round() + 1;
-              _pageController.animateToPage(
-                nextPage,
-                duration: kTabScrollDuration,
-                curve: Curves.easeIn,
-              );
+              print('+++++++ $nextPage');
+              if (nextPage == 5) {
+                Navigator.pop(context);
+              } else {
+                _pageController.animateToPage(
+                  nextPage,
+                  duration: kTabScrollDuration,
+                  curve: Curves.easeIn,
+                );
+              }
             },
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 16),
