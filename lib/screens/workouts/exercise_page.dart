@@ -215,7 +215,8 @@ class _ExercisePageState extends State<ExercisePage> {
               if (currantPage == widget.data.exercises!.length - 1) {
                 await CaloryRepo.setCalory(
                   CaloryModel(
-                    calory: int.tryParse(widget.data.kcal ?? '0') ?? 0,
+                    count: 1,
+                    calory: int.parse(widget.data.kcal!.split(' ').first),
                     date: DateFormat('dd.MM.yyyy').format(DateTime.now()),
                   ),
                 );

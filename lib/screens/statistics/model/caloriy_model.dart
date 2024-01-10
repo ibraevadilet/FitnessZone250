@@ -15,6 +15,6 @@ class CaloryModel extends HiveObject {
   CaloryModel({
     required this.calory,
     required this.date,
-    this.count = 1,
+    this.count = 0,
   });
 }

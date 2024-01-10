@@ -38,7 +38,7 @@ class _BottomNavScreenState extends State<BottomNavScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: StreamBuilder<AccelerometerEvent>(
-        stream: SensorsPlatform.instance.accelerometerEvents,
+        stream: SensorsPlatform.instance.accelerometerEventStream(),
         builder: (context, snapshort) {
           if (snapshort.hasData) {
             x = snapshort.data!.x;

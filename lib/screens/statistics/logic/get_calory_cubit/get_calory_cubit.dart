@@ -43,27 +43,28 @@ class GetCaloryCubit extends Cubit<GetCaloryState> {
 
       if (index == 0) {
         if (result.isEmpty) {
+          DateTime now = DateTime.now();
           for (var i = 0; i < generateDateWeek().length; i++) {
+            now = now.subtract(const Duration(days: 1));
             result.add(
               CaloryModel(
                 calory: 0,
-                date: DateFormat('dd.MM.yyyy')
-                    .format(generateDateWeek()[i])
-                    .toString(),
+                date: DateFormat('dd.MM.yyyy').format(now),
               ),
             );
           }
         } else if (result.length < 7) {
-          for (var i = 0; i < 7 - result.length; i++) {
+          print(result.length);
+          final number = 7 - result.length;
+          for (var i = 0; i < number; i++) {
             result.add(
               CaloryModel(
                 calory: 0,
-                date: DateFormat('dd.MM.yyyy')
-                    .parse(result.last.date)
-                    .subtract(
-                      const Duration(days: 1),
-                    )
-                    .toString(),
+                date: DateFormat('dd.MM.yyyy').format(
+                  DateFormat('dd.MM.yyyy').parse(result.last.date).subtract(
+                        const Duration(days: 1),
+                      ),
+                ),
               ),
             );
           }
@@ -83,16 +84,16 @@ class GetCaloryCubit extends Cubit<GetCaloryState> {
             );
           }
         } else if (result.length < generateDateMonth().length) {
-          for (var i = 0; i < generateDateMonth().length - result.length; i++) {
+          final number = generateDateMonth().length - result.length;
+          for (var i = 0; i < number; i++) {
             result.add(
               CaloryModel(
                 calory: 0,
-                date: DateFormat('dd.MM.yyyy')
-                    .parse(result.last.date)
-                    .subtract(
-                      const Duration(days: 1),
-                    )
-                    .toString(),
+                date: DateFormat('dd.MM.yyyy').format(
+                  DateFormat('dd.MM.yyyy').parse(result.last.date).subtract(
+                        const Duration(days: 1),
+                      ),
+                ),
               ),
             );
           }
