@@ -1,6 +1,7 @@
 import 'package:active_ally_fitness_zone_250/screens/workouts/choose_difficulty_page.dart';
 import 'package:active_ally_fitness_zone_250/screens/workouts/cubit/workout_cubit.dart';
 import 'package:active_ally_fitness_zone_250/utils/app_text_styles.dart';
+import 'package:active_ally_fitness_zone_250/widgets/app_indicator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,7 +16,7 @@ class WorkoutsScreen extends StatelessWidget {
           bloc: WorkoutCubit()..getData(),
           builder: (context, state) => state.when(
             loading: () => const Center(
-              child: CircularProgressIndicator(),
+              child: AppIndicatorFitessZone(),
             ),
             loaded: (data) => Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16),

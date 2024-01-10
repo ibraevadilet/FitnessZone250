@@ -3,6 +3,7 @@ import 'package:active_ally_fitness_zone_250/screens/statistics/widgets/row_cont
 import 'package:active_ally_fitness_zone_250/utils/app_text_styles.dart';
 import 'package:active_ally_fitness_zone_250/utils/colors.dart';
 import 'package:active_ally_fitness_zone_250/utils/images/app_images.dart';
+import 'package:active_ally_fitness_zone_250/widgets/spaces.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -19,51 +20,54 @@ class _ChartIndicatorWidgetState extends State<ChartIndicatorWidget> {
   String selectedDate = '';
   int maxChartHeight = 150;
   int maxCal = 0;
+  int allSumm = 0;
   @override
   Widget build(BuildContext context) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(5),
-        color: Colors.white,
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.shade400,
-            spreadRadius: 1,
-            blurRadius: 5,
-            offset: const Offset(1, 1),
+    return Stack(
+      alignment: Alignment.center,
+      children: [
+        Container(
+          width: context.width,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(5),
+            color: Colors.white,
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.shade400,
+                spreadRadius: 1,
+                blurRadius: 5,
+                offset: const Offset(1, 1),
+              ),
+            ],
           ),
-        ],
-      ),
-      height: 250.h,
-      child: BlocConsumer<GetCaloryCubit, GetCaloryState>(
-        listener: (context, state) {
-          state.whenOrNull(
-            success: (model) {
-              maxCal = 0;
-              selectedDate = model.last.date;
-              for (var e in model) {
-                if (e.calory > maxCal) {
-                  maxCal = e.calory;
-                }
-              }
+          height: 250.h,
+          child: BlocConsumer<GetCaloryCubit, GetCaloryState>(
+            listener: (context, state) {
+              state.whenOrNull(
+                success: (model) {
+                  maxCal = 0;
+                  selectedDate = model.last.date;
+                  for (var e in model) {
+                    if (e.calory > maxCal) {
+                      maxCal = e.calory;
+                    }
+                  }
+                  allSumm = int.parse(summCalory(model));
+                },
+              );
             },
-          );
-        },
-        builder: (context, state) {
-          return state.when(
-            loading: () => const Center(
-              child: CircularProgressIndicator.adaptive(),
-            ),
-            error: (error) => Center(
-              child: Text(error),
-            ),
-            success: (model) => SingleChildScrollView(
-              padding: const EdgeInsets.symmetric(horizontal: 20),
-              scrollDirection: Axis.horizontal,
-              child: Stack(
-                alignment: Alignment.center,
-                children: [
-                  Row(
+            builder: (context, state) {
+              return state.when(
+                loading: () => const Center(
+                  child: CircularProgressIndicator.adaptive(),
+                ),
+                error: (error) => Center(
+                  child: Text(error),
+                ),
+                success: (model) => SingleChildScrollView(
+                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
                     crossAxisAlignment: CrossAxisAlignment.end,
                     children: model
                         .map<Widget>(
@@ -139,21 +143,21 @@ class _ChartIndicatorWidgetState extends State<ChartIndicatorWidget> {
                         )
                         .toList(),
                   ),
-                  if (int.parse(summCalory(model)) == 0)
-                    Text(
-                      'No indicators yet',
-                      style: AppTextStylesFitnessZone.s15W500(
-                        color: Colors.black.withOpacity(
-                          0.5,
-                        ),
-                      ),
-                    ),
-                ],
+                ),
+              );
+            },
+          ),
+        ),
+        if (allSumm == 0)
+          Text(
+            'No indicators yet',
+            style: AppTextStylesFitnessZone.s15W500(
+              color: Colors.black.withOpacity(
+                0.5,
               ),
             ),
-          );
-        },
-      ),
+          ),
+      ],
     );
   }
 

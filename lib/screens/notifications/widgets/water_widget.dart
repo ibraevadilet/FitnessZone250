@@ -59,7 +59,7 @@ class _WaterWidgetState extends State<WaterWidget> {
         const SizedBox(height: 25),
         Container(
           width: context.width,
-          height: 190,
+          height: 190.h,
           decoration: ShapeDecoration(
             color: Colors.white,
             shape: RoundedRectangleBorder(
