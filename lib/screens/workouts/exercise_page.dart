@@ -1,11 +1,14 @@
 import 'dart:async';
 import 'dart:developer';
 
+import 'package:active_ally_fitness_zone_250/screens/bottom_nav_screen.dart';
+import 'package:active_ally_fitness_zone_250/screens/statistics/logic/get_calory_repo.dart';
+import 'package:active_ally_fitness_zone_250/screens/statistics/model/caloriy_model.dart';
 import 'package:active_ally_fitness_zone_250/screens/workouts/models/workout_model.dart';
 import 'package:active_ally_fitness_zone_250/utils/app_text_styles.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:intl/intl.dart';
 import 'package:just_audio/just_audio.dart';
 
 class ExercisePage extends StatefulWidget {
@@ -60,7 +63,6 @@ class _ExercisePageState extends State<ExercisePage> {
       setState(() {
         const reduceSecondsBy = 1;
         final seconds = duration!.inSeconds - reduceSecondsBy;
-        print(' seconds seconds$seconds');
         if (seconds < 0) {
           countdownTimer?.cancel();
         } else {
@@ -83,12 +85,9 @@ class _ExercisePageState extends State<ExercisePage> {
     int seconds;
     final parts = s.split(':');
     if (parts.length > 1) {
-      print('++++++$parts');
       minutes = int.parse(parts[parts.length - 2]);
-      print('++++++$minutes');
     }
     seconds = int.parse(parts[parts.length - 1]);
-    print('++++++${Duration(minutes: minutes, seconds: seconds)}');
     return Duration(minutes: minutes, seconds: seconds);
   }
 
@@ -99,6 +98,8 @@ class _ExercisePageState extends State<ExercisePage> {
     countdownTimer?.cancel();
   }
 
+  int currantPage = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -107,6 +108,9 @@ class _ExercisePageState extends State<ExercisePage> {
         children: [
           Expanded(
             child: PageView.builder(
+              onPageChanged: (value) {
+                currantPage = value;
+              },
               physics: const BouncingScrollPhysics(),
               controller: _pageController,
               // onPageChanged: (value) => selectedBannerPage.value = value,
@@ -207,13 +211,27 @@ class _ExercisePageState extends State<ExercisePage> {
           ),
           const SizedBox(height: 16),
           GestureDetector(
-            onTap: () {
-              var nextPage = _pageController.page!.round() + 1;
-              _pageController.animateToPage(
-                nextPage,
-                duration: kTabScrollDuration,
-                curve: Curves.easeIn,
-              );
+            onTap: () async {
+              if (currantPage == widget.data.exercises!.length - 1) {
+                await CaloryRepo.setCalory(
+                  CaloryModel(
+                    calory: int.tryParse(widget.data.kcal ?? '0') ?? 0,
+                    date: DateFormat('dd.MM.yyyy').format(DateTime.now()),
+                  ),
+                );
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const BottomNavScreen(),
+                  ),
+                  (route) => false,
+                );
+              } else {
+                _pageController.nextPage(
+                  duration: const Duration(milliseconds: 300),
+                  curve: Curves.ease,
+                );
+              }
             },
             child: Container(
               margin: const EdgeInsets.symmetric(horizontal: 16),

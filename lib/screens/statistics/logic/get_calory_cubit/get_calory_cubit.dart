@@ -46,7 +46,7 @@ class GetCaloryCubit extends Cubit<GetCaloryState> {
           for (var i = 0; i < generateDateWeek().length; i++) {
             result.add(
               CaloryModel(
-                calory: i * 20,
+                calory: 0,
                 date: DateFormat('dd.MM.yyyy')
                     .format(generateDateWeek()[i])
                     .toString(),
@@ -75,7 +75,7 @@ class GetCaloryCubit extends Cubit<GetCaloryState> {
           for (var i = 0; i < generateDateMonth().length; i++) {
             result.add(
               CaloryModel(
-                calory: i * 20,
+                calory: 0,
                 date: DateFormat('dd.MM.yyyy')
                     .format(generateDateMonth()[i])
                     .toString(),
@@ -102,7 +102,7 @@ class GetCaloryCubit extends Cubit<GetCaloryState> {
           for (var i = 0; i < generateDateWeek().length; i++) {
             result.add(
               CaloryModel(
-                calory: i * 20,
+                calory: 0,
                 date: DateFormat('dd.MM.yyyy')
                     .format(generateDateWeek()[i])
                     .toString(),
