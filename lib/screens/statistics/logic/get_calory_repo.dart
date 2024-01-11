@@ -12,16 +12,20 @@ class CaloryRepo {
     final savedCalories = box.values.toList();
 
     if (savedCalories.isNotEmpty) {
-      for (var e in savedCalories) {
-        if (e.date == model.date) {
-          e.calory += model.calory;
-          e.count++;
-          e.save();
-        } else {
-          box.add(model);
-        }
+      print('savedCalories.isNotEmpty');
+
+      final nowDateList = savedCalories.where((e) => e.date == model.date);
+      if (nowDateList.isNotEmpty) {
+        nowDateList.first.calory += model.calory;
+        nowDateList.first.count++;
+        nowDateList.first.save();
+        print('if (e.date == model.date)');
+      } else {
+        box.add(model);
+        print('else (e.date != model.date)');
       }
     } else {
+      print('else savedCalories.isNotEmpty');
       box.add(model);
     }
   }

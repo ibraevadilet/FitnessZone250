@@ -33,8 +33,8 @@ class WorkoutDetailPage extends StatelessWidget {
                 },
                 icon: Container(
                   margin: const EdgeInsets.only(),
-                  height: 35,
-                  width: 35,
+                  height: 35.h,
+                  width: 35.w,
                   decoration: BoxDecoration(
                     color: const Color(0xffFF008A),
                     borderRadius: BorderRadius.circular(20),
@@ -57,8 +57,8 @@ class WorkoutDetailPage extends StatelessWidget {
                 margin: const EdgeInsets.only(
                     // left: 20,
                     ),
-                height: 35,
-                width: 35,
+                height: 35.h,
+                width: 35.w,
                 decoration: BoxDecoration(
                   color: const Color(0xffFFFFFF).withOpacity(0.6),
                   borderRadius: BorderRadius.circular(20),
@@ -89,16 +89,16 @@ class WorkoutDetailPage extends StatelessWidget {
                           ),
                         ),
                       ),
-                      const SizedBox(height: 30),
+                      SizedBox(height: 30.h),
                     ],
                   ),
                 ),
                 Positioned(
-                    bottom: 30,
+                    bottom: 30.h,
                     left: 0,
                     right: 0,
                     child: Container(
-                      height: 100,
+                      height: 100.h,
                       decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(20),
                           gradient: LinearGradient(
@@ -118,7 +118,7 @@ class WorkoutDetailPage extends StatelessWidget {
                               style: AppTextStylesFitnessZone.s20W600(
                                   color: Colors.white),
                             ),
-                            const SizedBox(height: 6),
+                            SizedBox(height: 6.h),
                             RichText(
                               text: TextSpan(
                                 text: data.kcal,
@@ -157,8 +157,8 @@ class WorkoutDetailPage extends StatelessWidget {
                     )),
                 Positioned(
                   bottom: 0,
-                  left: 30,
-                  right: 30,
+                  left: 30.w,
+                  right: 30.w,
                   child: GestureDetector(
                     onTap: () => Navigator.push(
                         context,
@@ -188,12 +188,12 @@ class WorkoutDetailPage extends StatelessWidget {
           ),
           SliverToBoxAdapter(
             child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16),
+                padding: EdgeInsets.symmetric(horizontal: 16.h),
                 decoration: const BoxDecoration(color: Colors.white),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    const SizedBox(height: 30),
+                    SizedBox(height: 30.h),
                     Text(
                       'Description',
                       style: AppTextStylesFitnessZone.s16W500(),
@@ -208,7 +208,7 @@ class WorkoutDetailPage extends StatelessWidget {
                       'Exercises',
                       style: AppTextStylesFitnessZone.s16W500(),
                     ),
-                    const SizedBox(height: 16),
+                    SizedBox(height: 16.h),
                     ListView.separated(
                       shrinkWrap: true,
                       physics: const NeverScrollableScrollPhysics(),
@@ -233,7 +233,7 @@ class WorkoutDetailPage extends StatelessWidget {
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const SizedBox(height: 8),
+                                SizedBox(height: 8.h),
                                 Text(
                                   data.exercises![index].title!,
                                   style: AppTextStylesFitnessZone.s15W500(
@@ -250,10 +250,10 @@ class WorkoutDetailPage extends StatelessWidget {
                                 ),
                                 Row(
                                   children: [
-                                    const Icon(
+                                    Icon(
                                       Icons.timer_outlined,
                                       color: Colors.white,
-                                      size: 15,
+                                      size: 15.h,
                                     ),
                                     const SizedBox(width: 3),
                                     Text(
@@ -261,18 +261,18 @@ class WorkoutDetailPage extends StatelessWidget {
                                       style: AppTextStylesFitnessZone.s10W400(
                                           color: Colors.white),
                                     ),
-                                    const SizedBox(width: 3),
+                                    SizedBox(width: 3.w),
                                   ],
                                 ),
-                                const SizedBox(height: 8),
+                                SizedBox(height: 8.h),
                               ],
                             ),
-                            const SizedBox(width: 16),
+                            SizedBox(width: 16.w),
                           ],
                         ),
                       ),
                       separatorBuilder: (context, index) =>
-                          const SizedBox(height: 20),
+                          SizedBox(height: 20.h),
                       itemCount: data.exercises!.length,
                     ),
                     SizedBox(

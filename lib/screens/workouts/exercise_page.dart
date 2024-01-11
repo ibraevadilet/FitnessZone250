@@ -135,8 +135,8 @@ class _ExercisePageState extends State<ExercisePage> {
                             ),
                           ),
                           Positioned(
-                            left: 20,
-                            top: 64,
+                            left: 20.w,
+                            top: 64.h,
                             child: IconButton(
                               // iconSize: ,
                               onPressed: () {
@@ -157,8 +157,8 @@ class _ExercisePageState extends State<ExercisePage> {
                                 margin: const EdgeInsets.only(
                                     // left: 20,
                                     ),
-                                height: 35,
-                                width: 35,
+                                height: 35.h,
+                                width: 35.w,
                                 decoration: BoxDecoration(
                                   color:
                                       const Color(0xffFFFFFF).withOpacity(0.6),
@@ -178,7 +178,7 @@ class _ExercisePageState extends State<ExercisePage> {
                               right: 0,
                               bottom: 0,
                               child: Container(
-                                height: 100,
+                                height: 100.h,
                                 decoration: BoxDecoration(
                                     gradient: LinearGradient(
                                         colors: [

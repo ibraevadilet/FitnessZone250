@@ -20,7 +20,8 @@ class _ChartIndicatorWidgetState extends State<ChartIndicatorWidget> {
   String selectedDate = '';
   int maxChartHeight = 150;
   int maxCal = 0;
-  int allSumm = 0;
+
+  ValueNotifier<int> allSumm = ValueNotifier(0);
   @override
   Widget build(BuildContext context) {
     return Stack(
@@ -45,6 +46,7 @@ class _ChartIndicatorWidgetState extends State<ChartIndicatorWidget> {
             listener: (context, state) {
               state.whenOrNull(
                 success: (model) {
+                  allSumm.value = int.parse(summCalory(model));
                   maxCal = 0;
                   selectedDate = model.last.date;
                   for (var e in model) {
@@ -52,7 +54,6 @@ class _ChartIndicatorWidgetState extends State<ChartIndicatorWidget> {
                       maxCal = e.calory;
                     }
                   }
-                  allSumm = int.parse(summCalory(model));
                 },
               );
             },
@@ -148,15 +149,22 @@ class _ChartIndicatorWidgetState extends State<ChartIndicatorWidget> {
             },
           ),
         ),
-        if (allSumm == 0)
-          Text(
-            'No indicators yet',
-            style: AppTextStylesFitnessZone.s15W500(
-              color: Colors.black.withOpacity(
-                0.5,
-              ),
-            ),
-          ),
+        ValueListenableBuilder(
+          valueListenable: allSumm,
+          builder: (context, value, child) {
+            if (value == 0) {
+              return Text(
+                'No indicators yet',
+                style: AppTextStylesFitnessZone.s15W500(
+                  color: Colors.black.withOpacity(
+                    0.5,
+                  ),
+                ),
+              );
+            }
+            return const SizedBox.shrink();
+          },
+        ),
       ],
     );
   }

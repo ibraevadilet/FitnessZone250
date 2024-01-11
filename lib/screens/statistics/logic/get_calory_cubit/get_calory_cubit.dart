@@ -46,7 +46,8 @@ class GetCaloryCubit extends Cubit<GetCaloryState> {
           DateTime now = DateTime.now();
           for (var i = 0; i < generateDateWeek().length; i++) {
             now = now.subtract(const Duration(days: 1));
-            result.add(
+            result.insert(
+              0,
               CaloryModel(
                 calory: 0,
                 date: DateFormat('dd.MM.yyyy').format(now),
@@ -54,17 +55,16 @@ class GetCaloryCubit extends Cubit<GetCaloryState> {
             );
           }
         } else if (result.length < 7) {
-          print(result.length);
           final number = 7 - result.length;
+          DateTime firstDate =
+              DateFormat('dd.MM.yyyy').parse(result.first.date);
           for (var i = 0; i < number; i++) {
-            result.add(
+            firstDate = firstDate.subtract(const Duration(days: 1));
+            result.insert(
+              0,
               CaloryModel(
                 calory: 0,
-                date: DateFormat('dd.MM.yyyy').format(
-                  DateFormat('dd.MM.yyyy').parse(result.last.date).subtract(
-                        const Duration(days: 1),
-                      ),
-                ),
+                date: DateFormat('dd.MM.yyyy').format(firstDate),
               ),
             );
           }
@@ -74,7 +74,8 @@ class GetCaloryCubit extends Cubit<GetCaloryState> {
       } else if (index == 1) {
         if (result.isEmpty) {
           for (var i = 0; i < generateDateMonth().length; i++) {
-            result.add(
+            result.insert(
+              0,
               CaloryModel(
                 calory: 0,
                 date: DateFormat('dd.MM.yyyy')
@@ -84,16 +85,17 @@ class GetCaloryCubit extends Cubit<GetCaloryState> {
             );
           }
         } else if (result.length < generateDateMonth().length) {
+          print(result);
           final number = generateDateMonth().length - result.length;
+          DateTime firstDate =
+              DateFormat('dd.MM.yyyy').parse(result.first.date);
           for (var i = 0; i < number; i++) {
-            result.add(
+            firstDate = firstDate.subtract(const Duration(days: 1));
+            result.insert(
+              0,
               CaloryModel(
                 calory: 0,
-                date: DateFormat('dd.MM.yyyy').format(
-                  DateFormat('dd.MM.yyyy').parse(result.last.date).subtract(
-                        const Duration(days: 1),
-                      ),
-                ),
+                date: DateFormat('dd.MM.yyyy').format(firstDate),
               ),
             );
           }
@@ -101,7 +103,8 @@ class GetCaloryCubit extends Cubit<GetCaloryState> {
       } else if (index == 2) {
         if (result.isEmpty) {
           for (var i = 0; i < generateDateWeek().length; i++) {
-            result.add(
+            result.insert(
+              0,
               CaloryModel(
                 calory: 0,
                 date: DateFormat('dd.MM.yyyy')
@@ -113,7 +116,7 @@ class GetCaloryCubit extends Cubit<GetCaloryState> {
         }
       }
 
-      emit(GetCaloryState.success(result.reversed.toList()));
+      emit(GetCaloryState.success(result));
     } catch (e) {
       emit(GetCaloryState.error(e.toString()));
     }

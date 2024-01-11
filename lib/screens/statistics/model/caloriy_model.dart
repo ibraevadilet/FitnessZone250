@@ -17,4 +17,9 @@ class CaloryModel extends HiveObject {
     required this.date,
     this.count = 0,
   });
+
+  @override
+  String toString() {
+    return date;
+  }
 }
