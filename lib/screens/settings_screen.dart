@@ -136,13 +136,14 @@ class _SettingsScreenState extends State<SettingsScreen> {
                   );
                 },
               ),
-              SizedBox(height: 20.h),
-              SettingsRow(
-                title: 'Restore',
-                onTap: () async {
-                  await PremiumFitnessZone.buyFitnessZone(context);
-                },
-              ),
+              if (!isBuyPrem) SizedBox(height: 20.h),
+              if (!isBuyPrem)
+                SettingsRow(
+                  title: 'Restore',
+                  onTap: () async {
+                    await PremiumFitnessZone.buyFitnessZone(context);
+                  },
+                ),
             ],
           ),
         ),

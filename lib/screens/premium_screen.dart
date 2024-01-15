@@ -6,6 +6,7 @@ import 'package:active_ally_fitness_zone_250/utils/premium/premium.dart';
 import 'package:active_ally_fitness_zone_250/widgets/custom_button.dart';
 import 'package:active_ally_fitness_zone_250/widgets/restore_widgets.dart';
 import 'package:active_ally_fitness_zone_250/widgets/spaces.dart';
+import 'package:apphud/apphud.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -180,39 +181,32 @@ class _PremiumScreenState extends State<PremiumScreen> {
                     height: 58.h,
                     color: AppColors.colorFF008A,
                     onPress: () async {
-                      await PremiumFitnessZone.setPremium();
-                      Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                          builder: (_) => const BottomNavScreen(),
-                        ),
-                        (route) => false,
-                      );
-                      // setState(() {
-                      //   isBuing = true;
-                      // });
-                      // final apphudPaywalls = await Apphud.paywalls();
+                      setState(() {
+                        isBuing = true;
+                      });
+                      final apphudPaywalls = await Apphud.paywalls();
+                      print(apphudPaywalls);
 
-                      // await Apphud.purchase(
-                      //   product: apphudPaywalls?.paywalls.first.products?.first,
-                      // ).whenComplete(
-                      //   () async {
-                      //     if (await Apphud.hasPremiumAccess() ||
-                      //         await Apphud.hasActiveSubscription()) {
-                      //       await PremiumFitnessZone.buyFitnessZone(context);
-                      //       Navigator.pushAndRemoveUntil(
-                      //         context,
-                      //         MaterialPageRoute(
-                      //           builder: (_) => const BottomNavScreen(),
-                      //         ),
-                      //         (route) => false,
-                      //       );
-                      //     }
-                      //   },
-                      // );
-                      // setState(() {
-                      //   isBuing = false;
-                      // });
+                      await Apphud.purchase(
+                        product: apphudPaywalls?.paywalls.first.products?.first,
+                      ).whenComplete(
+                        () async {
+                          if (await Apphud.hasPremiumAccess() ||
+                              await Apphud.hasActiveSubscription()) {
+                            await PremiumFitnessZone.buyFitnessZone(context);
+                            Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const BottomNavScreen(),
+                              ),
+                              (route) => false,
+                            );
+                          }
+                        },
+                      );
+                      setState(() {
+                        isBuing = false;
+                      });
                     },
                     text: 'Buy Premium for \$0,99',
                     textStyle:
