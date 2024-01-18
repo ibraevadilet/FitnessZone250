@@ -1,4 +1,5 @@
 import 'package:active_ally_fitness_zone_250/firebase_options.dart'; // <-- Need this import
+import 'package:active_ally_fitness_zone_250/logic_prem/start_logic.dart';
 import 'package:active_ally_fitness_zone_250/screens/notifications/data/notification_hive_model.dart';
 import 'package:active_ally_fitness_zone_250/screens/notifications/get_notification_cubit/get_notification_cubit.dart';
 import 'package:active_ally_fitness_zone_250/screens/notifications/widgets/services/notification_handler.dart';
@@ -29,10 +30,7 @@ void main() async {
   Hive.registerAdapter(NotificationHiveModelAdapter());
   Hive.registerAdapter(CaloryModelAdapter());
   Hive.registerAdapter(StepsModelAdapter());
-  runApp(BlocProvider(
-    create: (context) => GetNotificationCubit(),
-    child: const MyApp(),
-  ));
+  await startLogic();
 }
 
 class MyApp extends StatefulWidget {
@@ -49,14 +47,17 @@ class _MyAppState extends State<MyApp> {
       designSize: const Size(375, 812),
       minTextAdapt: true,
       splitScreenMode: true,
-      builder: (_, child) => MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'Fitness Zone',
-        home: child,
-        theme: ThemeData.light().copyWith(
-          splashColor: Colors.transparent,
-          splashFactory: NoSplash.splashFactory,
-          highlightColor: Colors.transparent,
+      builder: (_, child) => BlocProvider(
+        create: (context) => GetNotificationCubit(),
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'Fitness Zone',
+          home: child,
+          theme: ThemeData.light().copyWith(
+            splashColor: Colors.transparent,
+            splashFactory: NoSplash.splashFactory,
+            highlightColor: Colors.transparent,
+          ),
         ),
       ),
       child: const SplashScreen(),
