@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 
 part 'prem_hive_model.g.dart';
 
-@HiveType(typeId: 0)
+@HiveType(typeId: 5)
 class NewPosterModel extends HiveObject {
   @HiveField(0)
   String secondUrl;

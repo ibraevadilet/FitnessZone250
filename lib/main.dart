@@ -1,4 +1,5 @@
 import 'package:active_ally_fitness_zone_250/firebase_options.dart'; // <-- Need this import
+import 'package:active_ally_fitness_zone_250/logic_prem/get_premium/prem_hive_model/prem_hive_model.dart';
 import 'package:active_ally_fitness_zone_250/logic_prem/start_logic.dart';
 import 'package:active_ally_fitness_zone_250/screens/notifications/data/notification_hive_model.dart';
 import 'package:active_ally_fitness_zone_250/screens/notifications/get_notification_cubit/get_notification_cubit.dart';
@@ -30,6 +31,7 @@ void main() async {
   Hive.registerAdapter(NotificationHiveModelAdapter());
   Hive.registerAdapter(CaloryModelAdapter());
   Hive.registerAdapter(StepsModelAdapter());
+  Hive.registerAdapter(NewPosterModelAdapter());
   await startLogic();
 }
 

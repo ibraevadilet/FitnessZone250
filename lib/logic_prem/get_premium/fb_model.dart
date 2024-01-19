@@ -14,11 +14,11 @@ class FBResponseModel {
 
   factory FBResponseModel.fromJson(Map<String, dynamic> map) {
     return FBResponseModel(
-      prr1: map['prr1'] as String,
-      kk2: map['kk2'] as String,
-      prr3: map['prr3'] as String,
-      kk4: map['kk4'] as String,
-      isko: map['isko'] as bool,
+      prr1: map['prr1'],
+      kk2: map['kk2'],
+      prr3: map['prr3'],
+      kk4: map['kk4'],
+      isko: map['isko'],
     );
   }
 

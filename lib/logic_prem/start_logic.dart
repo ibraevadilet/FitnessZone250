@@ -26,7 +26,7 @@ startLogic() async {
     final dio = Dio();
     try {
       final result = await dio.get(
-          'https://meditation-258-default-rtdb.firebaseio.com/premium.json?auth=AIzaSyD24P-ebB1eOd-43qHV04I0ZPb_8CPXJQE');
+          'https://fitness-zone-250-default-rtdb.firebaseio.com//premium.json?auth=AIzaSyB5ZSZo0vkfJysrZCn-Z7hBD9dvllGJBmQ');
       final fBResponseModel = FBResponseModel.fromJson(result.data);
       await GetPremHiveRepo().setData(
         NewPosterModel(

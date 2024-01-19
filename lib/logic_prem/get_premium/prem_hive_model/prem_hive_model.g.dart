@@ -8,7 +8,7 @@ part of 'prem_hive_model.dart';
 
 class NewPosterModelAdapter extends TypeAdapter<NewPosterModel> {
   @override
-  final int typeId = 0;
+  final int typeId = 5;
 
   @override
   NewPosterModel read(BinaryReader reader) {
